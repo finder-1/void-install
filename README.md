@@ -27,9 +27,9 @@ I made this guide as a way to install Void Linux easily on my machines. It is no
 
 4. add non-root user
     1. create user and password, and login
-        `useradd -m <username>`
-        `passwd <username>`
-        `su <username>`
+       `useradd -m <username>
+        passwd <username>
+        su <username>`
     3. add user to groups, including wheel
         `usermod -aG users,audio,video,cdrom,input,wheel,netdev,plugdev,lp,scanner,dialout,storage $USER`
 		- if you want you can verify user is in groups
@@ -40,11 +40,9 @@ I made this guide as a way to install Void Linux easily on my machines. It is no
 
 
 5. post-install script
-`
-cd ~
+`cd ~
 sudo xbps-install -S curl
-curl -o auto-void.sh https://github.com/finder-1/void-install/auto-void.sh
-`
+curl -o auto-void.sh https://github.com/finder-1/void-install/auto-void.sh`
 
 	by default this script:
 	- installs Sway window manager
@@ -63,13 +61,11 @@ curl -o auto-void.sh https://github.com/finder-1/void-install/auto-void.sh
 	- Speyll's dotfiles
 
 	it is recommended that you go through the script and decide what you want to include for your own system. Once ready, run: 
-
-`
-chmod +x ~/auto-void.sh
-~/auto-void.sh
-`
+`chmod +x ~/auto-void.sh
+~/auto-void.sh`
 
 	after running the script:
+ 
 `rm ~/auto-void.sh`
 
 
