@@ -70,7 +70,7 @@ non-default options include:
 it is recommended that you go through the script and decide what you want to include for your own system. Once ready, run: 
 ```
 chmod +x ~/auto-void.sh
-~/auto-void.sh
+sudo ~/auto-void.sh
 ```
 
 after running the script:
