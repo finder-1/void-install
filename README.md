@@ -48,7 +48,7 @@ passwd <username>
 su <username>
 cd ~
 sudo xbps-install -S curl
-curl -o auto-void.sh https://github.com/finder-1/void-install/auto-void.sh
+curl -o auto-void.sh https://raw.githubusercontent.com/finder-1/void-install/refs/heads/main/auto-void.sh
 ```
 
 by default this script:
