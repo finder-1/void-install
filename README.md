@@ -47,6 +47,7 @@ cd ~
 sudo xbps-install -S curl
 curl -o auto-void.sh https://github.com/finder-1/void-install/auto-void.sh
 ```
+
 	by default this script:
 	- installs Sway window manager
 	- installs kitty (terminal), fuzzel (application search), Waybar (taskbar), neovim (text editor), grim (screenshot tool), yazi (cli file manager), pcmanfm-qt (gui file manager), yt-dlp (media downloader), ffmpeg (multimedia handler), VLC (media player), OBS (video recording), Librewolf (web browser), LibreOffice suite (word processing, spreadsheats, slideshows) and many more miscellaneous packages 
@@ -68,6 +69,7 @@ curl -o auto-void.sh https://github.com/finder-1/void-install/auto-void.sh
 chmod +x ~/auto-void.sh
 ~/auto-void.sh
 ```
+
 	after running the script:
  	`rm ~/auto-void.sh`
 
