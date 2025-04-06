@@ -8,11 +8,12 @@ I made this guide as a way to install Void Linux easily on my machines. It is no
 
 1. full disk encryption + partitioning 
     - https://docs.voidlinux.org/installation/guides/fde.html#full-disk-encryption
-    - ensure disk has GPT disklabel
+    - ensure disk has GPT disklabel when you run `fdisk -l <drive>`
     - give 300M size for EFI partition
     - when opening the LUKS device add --allow-discards: 'cryptsetup luksOpen --allow-discards /dev/sdaX luks'
     - when doing cryptsetup do it for the non-EFI partition, not the entire drive
     - when editing the GRUB config, do not erase what already exists in `GRUB_CMDLINE_LINUX_DEFAULT=`. instead, put a space between what already exists and what it says to put there
+    - when adding your drive to /etc/crypttab, add "discard" next to luks, like this : luks,discard
     2. decide how much swap space to use
         https://docs.voidlinux.org/installation/live-images/partitions.html
     3. decide which mirror to use
@@ -23,17 +24,18 @@ I made this guide as a way to install Void Linux easily on my machines. It is no
     - when doing `dmsetup table /dev/mapper/crypt_dev --showkeys` to verify that TRIM has been configured correctly, swap "crypt_dev" with whatever you named the drive (e.g. void-pc)
 
 3. update packages
+`dhcpcd` <-- (if you get a transient resolver failure it's probably because you didn't run this.)
 `sudo xbps-install -Su`
 
-4. add non-root user
+5. add non-root user
     1. create user and password, and login
 ```
 useradd -m <username>
 passwd <username>
-su <username>
 ```
+
     2. add user to groups, including wheel
-`usermod -aG users,audio,video,cdrom,input,wheel,netdev,plugdev,lp,scanner,dialout,storage $USER`
+`usermod -aG users,audio,video,cdrom,input,wheel,plugdev,lp,scanner,dialout,storage <username>`
 	- if you want you can verify user is in groups
 	`groups <username>`
     3. edit sudo file so wheel group is a sudoer
@@ -43,6 +45,7 @@ su <username>
 
 5. post-install script
 ```
+su <username>
 cd ~
 sudo xbps-install -S curl
 curl -o auto-void.sh https://github.com/finder-1/void-install/auto-void.sh
