@@ -48,30 +48,30 @@ sudo xbps-install -S curl
 curl -o auto-void.sh https://github.com/finder-1/void-install/auto-void.sh
 ```
 
-	by default this script:
-	- installs Sway window manager
-	- installs kitty (terminal), fuzzel (application search), Waybar (taskbar), neovim (text editor), grim (screenshot tool), yazi (cli file manager), pcmanfm-qt (gui file manager), yt-dlp (media downloader), ffmpeg (multimedia handler), VLC (media player), OBS (video recording), Librewolf (web browser), LibreOffice suite (word processing, spreadsheats, slideshows) and many more miscellaneous packages 
-	- downloads dotfiles (configuration files)
-	- installs GPU drivers
-	- installs CPU microcode updates
-   - installs fonts
-   - sets up PipeWire, bluetooth autostart, chrony, polkitd, rtkit, seatd, dbus, socklog, ACPI, NetworkManager
-	- removes unused TTYs
+by default this script:
+- installs Sway window manager
+- installs kitty (terminal), fuzzel (application search), Waybar (taskbar), neovim (text editor), grim (screenshot tool), yazi (cli file manager), pcmanfm-qt (gui file manager), yt-dlp (media downloader), ffmpeg (multimedia handler), VLC (media player), OBS (video recording), Librewolf (web browser), LibreOffice suite (word processing, spreadsheats, slideshows) and many more miscellaneous packages 
+- downloads dotfiles (configuration files)
+- installs GPU drivers
+- installs CPU microcode updates
+- installs fonts
+- sets up PipeWire, bluetooth autostart, chrony, polkitd, rtkit, seatd, dbus, socklog, ACPI, NetworkManager
+- removes unused TTYs
    
-	non-default options include:
-	- Obsidian (note-taking, productivity, writing)
-	- Tauon (music player)
-	- Gaming (installs everything needed for gaming on Void)
-	- Speyll's dotfiles
+non-default options include:
+- Obsidian (note-taking, productivity, writing)
+- Tauon (music player)
+- Gaming (installs everything needed for gaming on Void)
+- Speyll's dotfiles
 
-	it is recommended that you go through the script and decide what you want to include for your own system. Once ready, run: 
+it is recommended that you go through the script and decide what you want to include for your own system. Once ready, run: 
 ```
 chmod +x ~/auto-void.sh
 ~/auto-void.sh
 ```
 
-	after running the script:
- 	`rm ~/auto-void.sh`
+after running the script:
+ `rm ~/auto-void.sh`
 
 
 recommended configurations:
