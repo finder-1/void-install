@@ -22,7 +22,10 @@ I made this guide as a way to install Void Linux easily on my machines. It is no
     https://docs.voidlinux.org/config/ssd.html
     - when doing `dmsetup table /dev/mapper/crypt_dev --showkeys` to verify that TRIM has been configured correctly, swap "crypt_dev" with whatever you named the drive (e.g. void-pc)
 
-3. add non-root user
+3. update packages
+`sudo xbps-install -Su`
+
+4. add non-root user
     1. create user and password
         `useradd -m <username> 
         `passwd <username>
@@ -34,14 +37,13 @@ I made this guide as a way to install Void Linux easily on my machines. It is no
         `visudo
         uncomment `%wheel ALL=(ALL) ALL`
 
-5. install sway window manager
-    1. install sway and other packages
-	    1. run `sudo xbps-install sway seatd dbus socklog git`
-	    2. add your user to the \_seatd and socklog groups:
-			- `usermod -aG _seatd,socklog $USER
 
-6. post-install script
-
+5. post-install script
+```
+cd ~
+sudo xbps-install -S curl
+curl -o auto-void.sh https://github.com/finder-1/void-install/auto-void.sh
+```
 	by default this script:
 	- installs Sway window manager
 	- installs kitty (terminal), fuzzel (application search), Waybar (taskbar), neovim (text editor), grim (screenshot tool), yazi (cli file manager), pcmanfm-qt (gui file manager), yt-dlp (media downloader), ffmpeg (multimedia handler), VLC (media player), OBS (video recording), Librewolf (web browser), LibreOffice suite (word processing, spreadsheats, slideshows) and many more miscellaneous packages 
@@ -60,12 +62,13 @@ I made this guide as a way to install Void Linux easily on my machines. It is no
 
 	it is recommended that you go through the script and decide what you want to include for your own system. Once ready, run: 
 ```
-cd ~
-curl -o auto-void.sh https://github.com/finder-1/void-install/auto-void.sh
 chmod +x ~/auto-void.sh
 ~/auto-void.sh
-rm ~/auto-void.sh
+
 ```
+	after running the script do:
+rm ~/auto-void.sh
+
 
 recommended configurations:
 - Obsidian theme
