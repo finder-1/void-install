@@ -41,9 +41,11 @@ I made this guide as a way to install Void Linux easily on my machines. It is no
 
 5. post-install script
 
-`cd ~
+`
+cd ~
 sudo xbps-install -S curl
-curl -o auto-void.sh https://github.com/finder-1/void-install/auto-void.sh`
+curl -o auto-void.sh https://github.com/finder-1/void-install/auto-void.sh
+`
 
 	by default this script:
 	- installs Sway window manager
