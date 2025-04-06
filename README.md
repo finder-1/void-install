@@ -27,11 +27,15 @@ I made this guide as a way to install Void Linux easily on my machines. It is no
 
 4. add non-root user
     1. create user and password, and login
-       `useradd -m <username>
+```
+       useradd -m <username>
         passwd <username>
-        su <username>`
+        su <username>
+```
     3. add user to groups, including wheel
-        `usermod -aG users,audio,video,cdrom,input,wheel,netdev,plugdev,lp,scanner,dialout,storage $USER`
+```
+    usermod -aG users,audio,video,cdrom,input,wheel,netdev,plugdev,lp,scanner,dialout,storage $USER
+```
 		- if you want you can verify user is in groups
 	        `groups <username>`
     5. edit sudo file so wheel group is a sudoer
@@ -40,13 +44,11 @@ I made this guide as a way to install Void Linux easily on my machines. It is no
 
 
 5. post-install script
-
-`
+```
 cd ~
 sudo xbps-install -S curl
 curl -o auto-void.sh https://github.com/finder-1/void-install/auto-void.sh
-`
-
+```
 	by default this script:
 	- installs Sway window manager
 	- installs kitty (terminal), fuzzel (application search), Waybar (taskbar), neovim (text editor), grim (screenshot tool), yazi (cli file manager), pcmanfm-qt (gui file manager), yt-dlp (media downloader), ffmpeg (multimedia handler), VLC (media player), OBS (video recording), Librewolf (web browser), LibreOffice suite (word processing, spreadsheats, slideshows) and many more miscellaneous packages 
@@ -64,13 +66,12 @@ curl -o auto-void.sh https://github.com/finder-1/void-install/auto-void.sh
 	- Speyll's dotfiles
 
 	it is recommended that you go through the script and decide what you want to include for your own system. Once ready, run: 
-
-	`chmod +x ~/auto-void.sh
-	~/auto-void.sh`
-
+```
+chmod +x ~/auto-void.sh
+	~/auto-void.sh
+```
 	after running the script:
- 
-	`rm ~/auto-void.sh`
+ 	`rm ~/auto-void.sh`
 
 
 recommended configurations:
