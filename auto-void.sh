@@ -143,6 +143,7 @@ sudo xbps-install -Sy NetworkManager dbus
 if sudo sv status wpa_supplicant >/dev/null 2>&1; then
   sudo sv stop wpa_supplicant
 fi
+sudo usermod -aG netdev $USER
 
 sudo rm -rf /var/services/wpa_supplicant 2>/dev/null
 sudo ln -s /etc/sv/dbus /var/service
