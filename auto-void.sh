@@ -153,21 +153,20 @@ sudo sv start NetworkManager
 # rm -rf "$HOME/dotfiles"
 
 # Clone and set up jvscholz's kitty and nvim configs
-git clone --filter=blob:none --no-checkout https://github.com/jvscholz/dotfiles
-cd $HOME/dotfiles
-git sparse-checkout set --cone
-git checkout master
-git sparse-checkout set nvim
-mv -f $HOME/dotfiles/nvim $HOME/.config
-git sparse-checkout set kitty
-mv -f $HOME/dotfiles/kitty $HOME/.config
-cd $HOME
+# git clone --filter=blob:none --no-checkout https://github.com/jvscholz/dotfiles
+# cd $HOME/dotfiles
+# git sparse-checkout set --cone
+# git checkout master
+# git sparse-checkout set nvim
+# mv -f $HOME/dotfiles/nvim $HOME/.config
+# git sparse-checkout set kitty
+# mv -f $HOME/dotfiles/kitty $HOME/.config
+# cd $HOME
 
 # Clone and set up my Sway and fuzzel configs
-git clone /LINK GOES HERE/ "$HOME/dotfiles" 
+git clone https://github.com/finder-1/void-install/dotfiles "$HOME/dotfiles" 
 cp -r "$HOME/dotfiles/."* "$HOME/"
-
-# PLAN: create my own dotfiles on github for all of my dotfiles, including .bashrc, and all .configs (nvim, kitty, sway, fuzzel)
+rm -rf "$HOME/dotfiles"
 
 
 chmod -R +X "$HOME/.local/bin" "$HOME/.local/share/applications" "$HOME/.config/autostart/" # Adjust permissions
