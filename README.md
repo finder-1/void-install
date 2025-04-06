@@ -27,14 +27,14 @@ I made this guide as a way to install Void Linux easily on my machines. It is no
 
 4. add non-root user
     1. create user and password
-        `useradd -m <username> 
-        `passwd <username>
-    2. add user to groups, including wheel
+        `useradd -m <username>`
+        `passwd <username>`
+    3. add user to groups, including wheel
         `usermod -aG users,audio,video,cdrom,input,wheel,netdev,plugdev,lp,scanner,dialout,storage $USER
 		- if you want you can verify user is in groups
-	        `groups <username>
-    3. edit sudo file so wheel group is a sudoer
-        `visudo
+	        `groups <username>`
+    4. edit sudo file so wheel group is a sudoer
+        `visudo`
         uncomment `%wheel ALL=(ALL) ALL`
 
 
