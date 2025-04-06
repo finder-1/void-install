@@ -1,7 +1,7 @@
 #!/bin/sh
 # Void Linux Post-Installation Script for Wayland
-# Author: Speyll
-# Last-update: 20-03-2025
+# Author: Speyll, forked by finder-1
+# Last-update: 06-04-2025
 
 # Enable debugging output and exit on error
 set -x
@@ -35,7 +35,7 @@ fi
 
 # Install other packages
 install_core_packages() {
-  for pkg in git tmux wayland dbus dbus-glib curl polkit polkit-gnome chrony \
+  for pkg in sway seatd socklog git tmux wayland dbus dbus-glib polkit polkit-gnome chrony \
              xdg-utils xdg-desktop-portal-gtk xdg-desktop-portal-gnome xdg-desktop-portal-wlr xdg-desktop-portal \
              pipewire gstreamer1-pipewire libspa-bluetooth rtkit pavucontrol wlr-randr xdg-user-dirs \
              noto-fonts-emoji noto-fonts-cjk-sans noto-fonts-ttf nerd-fonts-symbols-ttf \
@@ -113,6 +113,7 @@ sudo ln -s /etc/sv/rtkit /var/service/
 
 # Set up seatd
 sudo ln -s /etc/sv/seatd /var/service
+usermod -aG _seatd $USER
 
 # Set up dbus
 sudo ln -s /etc/sv/dbus /var/service
@@ -120,6 +121,7 @@ sudo ln -s /etc/sv/dbus /var/service
 # Set up socklog
 ln -s /etc/sv/socklog-unix/ /var/service
 ln -s /etc/sv/nanoklogd/ /var/service
+usermod -aG socklog $USER
 
 # Remove unused services (TTYs)
 for tty in 3 4 5 6; do
