@@ -40,6 +40,7 @@ I made this guide as a way to install Void Linux easily on my machines. It is no
 
 
 5. post-install script
+
 `cd ~
 sudo xbps-install -S curl
 curl -o auto-void.sh https://github.com/finder-1/void-install/auto-void.sh`
@@ -61,12 +62,13 @@ curl -o auto-void.sh https://github.com/finder-1/void-install/auto-void.sh`
 	- Speyll's dotfiles
 
 	it is recommended that you go through the script and decide what you want to include for your own system. Once ready, run: 
-`chmod +x ~/auto-void.sh
-~/auto-void.sh`
+
+	`chmod +x ~/auto-void.sh
+	~/auto-void.sh`
 
 	after running the script:
  
-`rm ~/auto-void.sh`
+	`rm ~/auto-void.sh`
 
 
 recommended configurations:
