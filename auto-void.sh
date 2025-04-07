@@ -167,7 +167,7 @@ sudo sv start NetworkManager
 # cd $HOME
 
 # Clone and set up my Sway and fuzzel configs
-git clone https://github.com/finder-1/void-install/dotfiles "$HOME/dotfiles" 
+git clone https://github.com/finder-1/dotfiles "$HOME/dotfiles" 
 cp -r "$HOME/dotfiles/."* "$HOME/"
 rm -rf "$HOME/dotfiles"
 
