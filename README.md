@@ -74,7 +74,10 @@ sudo ~/auto-void.sh
 ```
 
 after running the script:
- `rm ~/auto-void.sh`
+ ```
+rm ~/auto-void.sh
+sudo reboot
+ ```
 
 
 recommended configurations:
