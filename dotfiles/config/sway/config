@@ -241,7 +241,7 @@ bindsym $mod+r mode "resize"
     bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
     bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
     # Special key to take a screenshot with grim
-    bindsym Print exec grim
+    bindsym Alt+Shift+s exec grim
 
 # Sway color theme: 
 client.focused #3c3836 #3c3836 #fbf1c7
@@ -255,7 +255,7 @@ bar {
 
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
-    status_command while date +'%Y-%m-%d %X'; do sleep 1; done
+    status_command while date +'%X %m-%d-%y'; do sleep 1; done
 
     colors {
         statusline #fbf1c7
