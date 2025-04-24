@@ -12,7 +12,7 @@ I made this guide as a way to install Void Linux easily on my machines. It is no
     - give 300M size for EFI partition
     - when opening the LUKS device add --allow-discards: 'cryptsetup luksOpen --allow-discards /dev/sdaX luks'
     - when doing cryptsetup do it for the non-EFI partition, not the entire drive
-    - when editing the GRUB config, do not erase what already exists in `GRUB_CMDLINE_LINUX_DEFAULT=`. instead, put a space between what already exists and what it says to put there
+    - when editing the GRUB config, do not erase what already exists in `GRUB_CMDLINE_LINUX_DEFAULT=`. instead, put a space between each entry. also add "rd.luks.allow-discards"
     - when adding your drive to /etc/crypttab, add "discard" next to luks, like this : luks,discard
     2. decide how much swap space to use
         https://docs.voidlinux.org/installation/live-images/partitions.html
