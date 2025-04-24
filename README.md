@@ -24,7 +24,7 @@ I made this guide as a way to install Void Linux easily on my machines. It is no
     - everything besides enabling trim when you change the logical volume should already be done.
     - to enable trim when changing the logical volume size edit `/etc/lvm/lvm.conf`, uncomment the issue_discards option, and set it to 1:
 `issue_discards=1`
-    - then verify that TRIM has been configured correctly by doing `dmsetup table /dev/mapper/crypt_dev --showkeys` and look for `allow_discards` in the output. swap "crypt_dev" with whatever you named the drive (e.g. void-pc)
+    - then verify that TRIM has been configured correctly by doing `dmsetup table /dev/mapper/crypt_dev --showkeys` and look for `allow_discards` in the output. swap "crypt_dev" with whatever your hostname is (e.g. void-pc)
 
 4. update packages
 `dhcpcd` <-- (if you get a transient resolver failure it's probably because you didn't run this.)
