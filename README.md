@@ -21,9 +21,12 @@ I made this guide as a way to install Void Linux easily on my machines. It is no
 
 2. enable trimming on SSD
     https://docs.voidlinux.org/config/ssd.html
-    - when doing `dmsetup table /dev/mapper/crypt_dev --showkeys` to verify that TRIM has been configured correctly, swap "crypt_dev" with whatever you named the drive (e.g. void-pc)
+    - everything besides enabling trim when you change the logical volume should already be done.
+    - to enable trim when changing the logical volume size edit `/etc/lvm/lvm.conf`, uncomment the issue_discards option, and set it to 1:
+`issue_discards=1`
+    - then verify that TRIM has been configured correctly by doing `dmsetup table /dev/mapper/crypt_dev --showkeys` and look for `allow_discards` in the output. swap "crypt_dev" with whatever you named the drive (e.g. void-pc)
 
-3. update packages
+4. update packages
 `dhcpcd` <-- (if you get a transient resolver failure it's probably because you didn't run this.)
 `sudo xbps-install -Su`
 
