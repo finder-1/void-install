@@ -6,7 +6,7 @@
 
 
 # Swaylock as login screen
-exec swaylock --daemonize -f -c 000000
+# exec swaylock --daemonize -f -c 000000
 
 ### Variables
 #
