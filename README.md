@@ -78,12 +78,13 @@ chmod +x ~/auto-void.sh
 
 after running the script:
  ```
+usermod -aG _seatd,socklog,network $USER
 rm ~/auto-void.sh
 sudo reboot
  ```
 
 
-recommended configurations:
+recommended post-script configurations:
 - Obsidian theme
 	- change the accent color in Obsidian to `146 R 131 G 116 B`. this is the same color as the window manager, taskbar, and terminal. you could also try `251 R 241 G 199 B`. the setting can be found in Appearance on the Obsidian app
 - Flatpak application permissions
