@@ -93,11 +93,11 @@ install_flatpak_packages
 # Create common user directories
 xdg-user-dirs-update
 
-# Set up PipeWire
-sudo ln -s /usr/share/applications/pipewire.desktop /etc/xdg/autostart/pipewire.desktop
-sudo mkdir -p /etc/alsa/conf.d
-sudo ln -s /usr/share/alsa/alsa.conf.d/50-pipewire.conf /etc/alsa/conf.d
-sudo ln -s /usr/share/alsa/alsa.conf.d/99-pipewire-default.conf /etc/alsa/conf.d
+# Set up PipeWire and Pulseaudio interface
+mkdir -p /etc/pipewire/pipewire.conf.d
+ln -s /usr/share/examples/wireplumber/10-wireplumber.conf /etc/pipewire/pipewire.conf.d/
+ln -s /usr/share/examples/pipewire/20-pipewire-pulse.conf /etc/pipewire/pipewire.conf.d/
+
 
 # Set up bluetooth autostart
 sudo ln -s /etc/sv/bluetoothd /var/service/
