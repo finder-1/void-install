@@ -113,7 +113,6 @@ sudo ln -s /etc/sv/rtkit /var/service/
 
 # Set up seatd
 sudo ln -s /etc/sv/seatd /var/service
-usermod -aG _seatd $USER
 
 # Set up dbus
 sudo ln -s /etc/sv/dbus /var/service
@@ -121,7 +120,6 @@ sudo ln -s /etc/sv/dbus /var/service
 # Set up socklog
 ln -s /etc/sv/socklog-unix/ /var/service
 ln -s /etc/sv/nanoklogd/ /var/service
-usermod -aG socklog $USER
 
 # Remove unused services (TTYs)
 for tty in 3 4 5 6; do
@@ -143,7 +141,6 @@ sudo xbps-install -Sy NetworkManager dbus
 if sudo sv status wpa_supplicant >/dev/null 2>&1; then
   sudo sv stop wpa_supplicant
 fi
-sudo usermod -aG netdev $USER
 
 sudo rm -rf /var/services/wpa_supplicant 2>/dev/null
 sudo ln -s /etc/sv/dbus /var/service
