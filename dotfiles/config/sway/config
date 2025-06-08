@@ -42,12 +42,11 @@ exec udiskie -c .config/udiskie/config.yml
 
 # start pipewire
 exec pipewire
-exec wireplumber
 
 # PolicyKit authentication agent:
 exec /usr/libexec/polkit-mate-authentication-agent-1
 
-# Make Thunar start in floating
+# Make Thunar (gui file manager) start in floating
 for_window [app_id="thunar"] floating enable
 for_window [app_id="thunar"] resize set 1000 600
 
