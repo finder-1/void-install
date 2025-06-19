@@ -1,7 +1,7 @@
 #!/bin/sh
 # Void Linux Post-Installation Script for Wayland
 # Author: Speyll, forked by finder-1
-# Last-update: 06-04-2025
+# Last-update: 06-18-2025
 
 # Enable debugging output and exit on error
 set -x
