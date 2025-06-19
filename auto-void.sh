@@ -90,6 +90,9 @@ install_flatpak_packages
 #install_flatpak_gaming
 #install_gaming_packages
 
+# Make audio work on Librewolf
+flatpak override --device=all --filesystem=home --talk-name=org.freedesktop.portal.Desktop
+
 # Create common user directories (might want to remove the ones you don't want)
 xdg-user-dirs-update
 #rmdir $HOME/Templates
