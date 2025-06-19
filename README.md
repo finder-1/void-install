@@ -30,6 +30,7 @@ I made this guide as a way to install Void Linux easily on my machines. It is no
 3. update packages and set mirror
 
 `sudo xbps-install -Su`
+
 (if you get a transient resolver failure try running this, might have to do it twice: `dhcpcd`)
 
 ```
