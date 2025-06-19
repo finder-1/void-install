@@ -1,4 +1,4 @@
-# void-install
+1# void-install
 A Void Linux with Sway window manager install guide and post-install script.
 
 
@@ -40,10 +40,14 @@ passwd <username>
 
 5. add user to groups and make sudoer
 	1. add user to groups
+    
    `usermod -aG users,audio,video,cdrom,input,wheel,plugdev,lp,scanner,dialout,storage <username>`
+   
 		- if you want you can verify user is in groups
+   
 		`groups <username>`
-	2. edit sudo file so wheel group is a sudoer
+
+	3. edit sudo file so wheel group is a sudoer
  
         `visudo`
     
@@ -51,6 +55,7 @@ passwd <username>
 
 
 7. post-install script
+   
 ```
 su <username>
 cd ~
@@ -76,12 +81,14 @@ non-default options include:
 - Speyll's dotfiles
 
 it is recommended that you go through the script and decide what you want to include for your own system. Once ready, run the following. Remember to **not** run the script as root: 
+
 ```
 chmod +x ~/auto-void.sh
 ~/auto-void.sh
 ```
 
 after running the script:
+
  ```
 usermod -aG _seatd,socklog,network $USER
 rm ~/auto-void.sh
