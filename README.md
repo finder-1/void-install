@@ -61,16 +61,17 @@ by default this script:
 - installs GPU drivers
 - installs CPU microcode updates
 - installs fonts
-- sets up PipeWire, bluetooth autostart, chrony, polkitd, rtkit, seatd, dbus, socklog, ACPI, NetworkManager
+- sets up Pulseaudio, chrony, polkitd, rtkit, seatd, dbus, socklog, ACPI, NetworkManager
 - removes unused TTYs
+and more.
    
 non-default options include:
-- Obsidian (note-taking, productivity, writing)
-- Tauon (music player)
+- Obsidian Flatpak (note-taking, productivity, writing)
+- Tauon Flatpak (music player)
 - Gaming (installs everything needed for gaming on Void)
 - Speyll's dotfiles
 
-it is recommended that you go through the script and decide what you want to include for your own system. Once ready, run the following. Remember to not run the script as root: 
+it is recommended that you go through the script and decide what you want to include for your own system. Once ready, run the following. Remember to **not** run the script as root: 
 ```
 chmod +x ~/auto-void.sh
 ~/auto-void.sh
@@ -89,3 +90,5 @@ recommended post-script configurations:
 	- change the accent color in Obsidian to `146 R 131 G 116 B`. this is the same color as the window manager, taskbar, and terminal. you could also try `251 R 241 G 199 B`. the setting can be found in Appearance on the Obsidian app
 - Flatpak application permissions
   -in Flatseal (installed by default) give LibreWolf and Obsidian permissions to all files, along with any other applications you install and think need those permissions
+- launch pavucontrol and ensure your audio is working. you can test it with `paplay /usr/share/sounds/alsa/Front_Center.wav`
+- remove user directories you don't want (e.g. Desktop, Templates, Public)
