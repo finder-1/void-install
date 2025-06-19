@@ -55,7 +55,7 @@ passwd <username>
 
 
 7. post-install script
-	1. download the script
+	download the script
 ```
 su <username>
 cd ~
@@ -82,14 +82,14 @@ non-default options include:
 
 it is recommended that you go through the script and decide what you want to include for your own system. 
 
-2. Once ready, run the following. Remember to **not** run the script as root: 
+Once ready, run the following. Remember to **not** run the script as root: 
 
 ```
 chmod +x ~/auto-void.sh
 ~/auto-void.sh
 ```
 
-3. after running the script:
+after running the script:
 
 ```
 usermod -aG _seatd,socklog,network $USER
