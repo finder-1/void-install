@@ -27,10 +27,15 @@ I made this guide as a way to install Void Linux easily on my machines. It is no
     
 	2. then verify that TRIM has been configured correctly by doing `dmsetup table /dev/mapper/crypt_dev --showkeys` and look for `allow_discards` in the output. swap "crypt_dev" with whatever your hostname is (e.g. void-pc)
 
-3. update packages
-`dhcpcd` <-- (if you get a transient resolver failure it's probably because you didn't run this: `sudo xbps-install -Su`)
+3. update packages and set mirror
+`sudo xbps-install -Su` (if you get a transient resolver failure it's probably because you didn't run this: `dhcpcd`)
 
-4. add non-root user
+```
+sudo xbps-install xmirror
+xmirror
+```
+
+5. add non-root user
    create user and password, and login
 
 ```
