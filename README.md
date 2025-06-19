@@ -55,7 +55,7 @@ passwd <username>
 
 
 7. post-install script
-   
+	1. download the script
 ```
 su <username>
 cd ~
@@ -80,14 +80,15 @@ non-default options include:
 - Gaming (installs everything needed for gaming on Void)
 - Speyll's dotfiles
 
-it is recommended that you go through the script and decide what you want to include for your own system. Once ready, run the following. Remember to **not** run the script as root: 
+it is recommended that you go through the script and decide what you want to include for your own system. 
+	2. Once ready, run the following. Remember to **not** run the script as root: 
 
 ```
 chmod +x ~/auto-void.sh
 ~/auto-void.sh
 ```
 
-after running the script:
+	3. after running the script:
 
  ```
 usermod -aG _seatd,socklog,network $USER
