@@ -38,9 +38,8 @@ useradd -m <username>
 passwd <username>
 ```
 
-    2. add user to groups, including wheel
-    
-`usermod -aG users,audio,video,cdrom,input,wheel,plugdev,lp,scanner,dialout,storage <username>`
+5. add user to groups, including wheel
+    `usermod -aG users,audio,video,cdrom,input,wheel,plugdev,lp,scanner,dialout,storage <username>`
 	- if you want you can verify user is in groups
 	`groups <username>`
     3. edit sudo file so wheel group is a sudoer
@@ -48,7 +47,7 @@ passwd <username>
         uncomment `%wheel ALL=(ALL) ALL`
 
 
-5. post-install script
+6. post-install script
 ```
 su <username>
 cd ~
