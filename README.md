@@ -43,9 +43,9 @@ passwd <username>
     
    `usermod -aG users,audio,video,cdrom,input,wheel,plugdev,lp,scanner,dialout,storage <username>`
    
-		- if you want you can verify user is in groups
+	- if you want you can verify user is in groups
    
-		`groups <username>`
+	`groups <username>`
 
 	3. edit sudo file so wheel group is a sudoer
  
