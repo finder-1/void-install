@@ -59,7 +59,7 @@ install_networking_packages() {
 
 install_flatpak_packages() {
  sudo xbps-install -y flatpak
- flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+ flatpak remote-add --if-not-exists --user flathub https://dl.flathub.org/repo/flathub.flatpakrepo
  flatpak install flathub io.gitlab.librewolf-community
  flatpak install flathub com.github.tchx84.Flatseal
 # flatpak install flathub com.github.taiko2k.tauonmb
