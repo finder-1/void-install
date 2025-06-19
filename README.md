@@ -29,12 +29,12 @@ I made this guide as a way to install Void Linux easily on my machines. It is no
 
 3. update packages and set mirror
 
-	update packages
+update packages
 `sudo xbps-install -Su`
 
 (if you get a transient resolver failure try running this, might have to do it twice: `dhcpcd`)
 
-	set mirror
+set mirror
 
 ```
 sudo xbps-install xmirror
@@ -66,7 +66,7 @@ passwd <username>
 
 
 7. post-install script
-	download the script
+download the script
 ```
 su <username>
 cd ~
@@ -93,14 +93,14 @@ non-default options include:
 
 it is recommended that you go through the script and decide what you want to include for your own system. 
 
-	Once ready, run the following. Remember to **not** run the script as root: 
+Once ready, run the following. Remember to **not** run the script as root: 
 
 ```
 chmod +x ~/auto-void.sh
 ~/auto-void.sh
 ```
 
-	after running the script:
+after running the script:
 
 ```
 usermod -aG _seatd,socklog,network $USER
