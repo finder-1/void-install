@@ -37,12 +37,12 @@ fi
 install_core_packages() {
   for pkg in sway seatd socklog git tmux wayland dbus dbus-glib polkit polkit-gnome chrony \
              xdg-utils xdg-desktop-portal-gtk xdg-desktop-portal-gnome xdg-desktop-portal-wlr xdg-desktop-portal \
-             pipewire gstreamer1-pipewire libspa-bluetooth rtkit pavucontrol wlr-randr xdg-user-dirs \
+             pulseaudio pavucontrol rtkit wlr-randr xdg-user-dirs \
              noto-fonts-emoji noto-fonts-cjk-sans noto-fonts-ttf nerd-fonts-symbols-ttf \
              grim slurp wl-clipboard cliphist wvkbd \
              swayimg imv swaybg mpv mpvpaper ffmpeg yt-dlp \
              fnott libnotify \
-             yazi unzip p7zip unrar xz pcmanfm-qt ffmpegthumbnailer webp-pixbuf-loader tumbler lxqt-archiver gvfs-smb gvfs-afc gvfs-mtp udisks2 \
+             yazi unzip p7zip unrar xz thunar ffmpegthumbnailer webp-pixbuf-loader tumbler lxqt-archiver gvfs-smb gvfs-afc gvfs-mtp udisks2 \
              flavours breeze-gtk breeze-snow-cursor-theme breeze-icons \
              qt5-wayland bluez \
 	     htop base-devel socklog-void swaylock vlc obs libreoffice \
@@ -58,10 +58,10 @@ install_networking_packages() {
 }
 
 install_flatpak_packages() {
-  sudo xbps-install -y flatpak
-  flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-  flatpak install flathub io.gitlab.librewolf-community
-  flatpak install flathub com.github.tchx84.Flatseal
+ sudo xbps-install -y flatpak
+ flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+ flatpak install flathub io.gitlab.librewolf-community
+ flatpak install flathub com.github.tchx84.Flatseal
 # flatpak install flathub com.github.taiko2k.tauonmb
 # flatpak install flathub md.obsidian.Obsidian
 }
@@ -90,16 +90,13 @@ install_flatpak_packages
 #install_flatpak_gaming
 #install_gaming_packages
 
-# Create common user directories
+# Create common user directories (might want to remove the ones you don't want)
 xdg-user-dirs-update
-
-# Set up PipeWire and Pulseaudio interface
-mkdir -p /etc/pipewire/pipewire.conf.d
-ln -s /usr/share/examples/wireplumber/10-wireplumber.conf /etc/pipewire/pipewire.conf.d/
-ln -s /usr/share/examples/pipewire/20-pipewire-pulse.conf /etc/pipewire/pipewire.conf.d/
+#rmdir $HOME/Templates
+#rmdir $HOME/Public
+#rmdir $HOME/Desktop
 
 
-# Set up bluetooth autostart
 sudo ln -s /etc/sv/bluetoothd /var/service/
 
 # Set up chrony
@@ -164,15 +161,15 @@ sudo sv start NetworkManager
 # cd $HOME
 
 # Clone and set up my Sway and fuzzel configs
-git clone https://github.com/finder-1/dotfiles "$HOME/dotfiles" 
-sudo cp -r "$HOME/dotfiles/.* "$HOME/"
-rm -rf "$HOME/dotfiles"
+# git clone https://github.com/finder-1/dotfiles "$HOME/dotfiles" 
+# sudo cp -r "$HOME/dotfiles/.* "$HOME/"
+# rm -rf "$HOME/dotfiles"
 
 
-chmod -R +X "$HOME/.local/bin" "$HOME/.local/share/applications" "$HOME/.config/autostart/" # Adjust permissions
-ln -s "$HOME/.config/mimeapps.list" "$HOME/.local/share/applications/" # Create symbolic link for mimeapps.list
-dash "$HOME/.local/share/fonts/git-fonts.sh" # Run the font installation script
-dash "$HOME/.local/share/icons/git-cursors.sh" # Run the cursors installation script
+# chmod -R +X "$HOME/.local/bin" "$HOME/.local/share/applications" "$HOME/.config/autostart/" # Adjust permissions
+# ln -s "$HOME/.config/mimeapps.list" "$HOME/.local/share/applications/" # Create symbolic link for mimeapps.list
+# dash "$HOME/.local/share/fonts/git-fonts.sh" # Run the font installation script
+# dash "$HOME/.local/share/icons/git-cursors.sh" # Run the cursors installation script
 
 # Add user to wheel group for sudo access
 # echo "%sudo ALL=(ALL:ALL) NOPASSWD: /usr/bin/halt, /usr/bin/poweroff, /usr/bin/reboot, /usr/bin/shutdown, /usr/bin/zzz, /usr/bin/ZZZ" | sudo tee -a /etc/sudoers.d/wheel
