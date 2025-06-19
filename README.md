@@ -112,7 +112,7 @@ sudo reboot
 
 
 recommended post-script configurations:
-- boot straight into void
+- boot straight into sway
 	- edit `/etc/sv/agetty-tty1/conf`
 	- find where it says `GETTY_ARGS="--noclear"` and add `-a username`
 
