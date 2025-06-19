@@ -2,6 +2,7 @@
 A Void Linux with Sway window manager install guide and post-install script.
 
 
+**Guide and script are not ready for public use. I just have them public so I can access them without logging in.**
 I made this guide as a way to install Void Linux easily on my machines. It is not a just-works solution. You will need to do some configuring yourself and still need to know your way around setting up a bare-bones Linux desktop from scratch.
 
 
