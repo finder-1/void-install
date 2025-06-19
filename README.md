@@ -23,7 +23,7 @@ I made this guide as a way to install Void Linux easily on my machines. It is no
     https://docs.voidlinux.org/config/ssd.html
 	1. to enable trim when changing the logical volume size edit `/etc/lvm/lvm.conf`, uncomment the issue_discards option, and set it to 1:
 `issue_discards=1`
-    - everything besides enabling trim when you change the logical volume should already be done.
+    	- everything besides enabling trim when you change the logical volume should already be done.
     
 	2. then verify that TRIM has been configured correctly by doing `dmsetup table /dev/mapper/crypt_dev --showkeys` and look for `allow_discards` in the output. swap "crypt_dev" with whatever your hostname is (e.g. void-pc)
 
@@ -35,7 +35,8 @@ I made this guide as a way to install Void Linux easily on my machines. It is no
    create user and password, and login
 ```
 useradd -m <username>
-passwd <username>```
+passwd <username>
+```
 
     2. add user to groups, including wheel
 `usermod -aG users,audio,video,cdrom,input,wheel,plugdev,lp,scanner,dialout,storage <username>`
