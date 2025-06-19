@@ -91,7 +91,7 @@ install_flatpak_packages
 #install_gaming_packages
 
 # Make audio work on Librewolf
-flatpak override --device=all --filesystem=home --talk-name=org.freedesktop.portal.Desktop
+sudo flatpak override --device=all --filesystem=home io.gitlab.librewolf-community
 
 # Create common user directories (might want to remove the ones you don't want)
 xdg-user-dirs-update
