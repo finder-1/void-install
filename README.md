@@ -39,6 +39,7 @@ passwd <username>
 ```
 
     2. add user to groups, including wheel
+    
 `usermod -aG users,audio,video,cdrom,input,wheel,plugdev,lp,scanner,dialout,storage <username>`
 	- if you want you can verify user is in groups
 	`groups <username>`
