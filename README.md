@@ -81,6 +81,7 @@ non-default options include:
 - Speyll's dotfiles
 
 it is recommended that you go through the script and decide what you want to include for your own system. 
+
 	2. Once ready, run the following. Remember to **not** run the script as root: 
 
 ```
@@ -90,11 +91,11 @@ chmod +x ~/auto-void.sh
 
 	3. after running the script:
 
- ```
+```
 usermod -aG _seatd,socklog,network $USER
 rm ~/auto-void.sh
 sudo reboot
- ```
+```
 
 
 recommended post-script configurations:
