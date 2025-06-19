@@ -2,7 +2,6 @@
 A Void Linux with Sway window manager install guide and post-install script.
 
 
-**Guide and script are not ready for public use. I just have them public so I can access them without logging in.**
 I made this guide as a way to install Void Linux easily on my machines. It is not a just-works solution. You will need to do some configuring yourself and still need to know your way around setting up a bare-bones Linux desktop from scratch.
 
 
@@ -15,28 +14,28 @@ I made this guide as a way to install Void Linux easily on my machines. It is no
     - when doing cryptsetup do it for the non-EFI partition, not the entire drive
     - when editing the GRUB config, do not erase what already exists in `GRUB_CMDLINE_LINUX_DEFAULT=`. instead, put a space between each entry. also add "rd.luks.allow-discards"
     - when adding your drive to /etc/crypttab, add "discard" next to luks, like this : luks,discard
-    2. decide how much swap space to use
+    - decide how much swap space to use
         https://docs.voidlinux.org/installation/live-images/partitions.html
-    3. decide which mirror to use
+    - decide which mirror to use
         https://xmirror.voidlinux.org/
 
 2. enable trimming on SSD
     https://docs.voidlinux.org/config/ssd.html
-    - everything besides enabling trim when you change the logical volume should already be done.
-    - to enable trim when changing the logical volume size edit `/etc/lvm/lvm.conf`, uncomment the issue_discards option, and set it to 1:
+	1. to enable trim when changing the logical volume size edit `/etc/lvm/lvm.conf`, uncomment the issue_discards option, and set it to 1:
 `issue_discards=1`
-    - then verify that TRIM has been configured correctly by doing `dmsetup table /dev/mapper/crypt_dev --showkeys` and look for `allow_discards` in the output. swap "crypt_dev" with whatever your hostname is (e.g. void-pc)
+    - everything besides enabling trim when you change the logical volume should already be done.
+    
+	2. then verify that TRIM has been configured correctly by doing `dmsetup table /dev/mapper/crypt_dev --showkeys` and look for `allow_discards` in the output. swap "crypt_dev" with whatever your hostname is (e.g. void-pc)
 
-4. update packages
+3. update packages
 `dhcpcd` <-- (if you get a transient resolver failure it's probably because you didn't run this.)
 `sudo xbps-install -Su`
 
-5. add non-root user
-    1. create user and password, and login
+4. add non-root user
+   create user and password, and login
 ```
 useradd -m <username>
-passwd <username>
-```
+passwd <username>```
 
     2. add user to groups, including wheel
 `usermod -aG users,audio,video,cdrom,input,wheel,plugdev,lp,scanner,dialout,storage <username>`
