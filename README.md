@@ -112,6 +112,14 @@ sudo reboot
 
 
 recommended post-script configurations:
+- boot straight into void
+	- edit `/etc/sv/agetty-tty1/conf`
+	- find where it says `GETTY_ARGS="--noclear"` and add `-a username`
+
+```
+GETTY_ARGS="--noclear -a username"
+```
+
 - Obsidian theme
 	- change the accent color in Obsidian to `146 R 131 G 116 B`. this is the same color as the window manager, taskbar, and terminal. you could also try `251 R 241 G 199 B`. the setting can be found in Appearance on the Obsidian app
 - Flatpak application permissions
