@@ -1,0 +1,10 @@
+mount_options:
+  - options: [noatime]
+program_options:
+  udisks_service: udisks2
+  tray: auto
+device_config:
+  - id_type: auto
+    ignore: false
+    automount: true
+
