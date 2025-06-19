@@ -22,8 +22,8 @@ I made this guide as a way to install Void Linux easily on my machines. It is no
 2. enable trimming on SSD
     https://docs.voidlinux.org/config/ssd.html
 	1. to enable trim when changing the logical volume size edit `/etc/lvm/lvm.conf`, uncomment the issue_discards option, and set it to 1:
-`issue_discards=1`
-    	- everything besides enabling trim when you change the logical volume should already be done.
+`issue_discards = 1`
+    	- everything besides the above should have already been done during the install.
     
 	2. then verify that TRIM has been configured correctly by doing `dmsetup table /dev/mapper/crypt_dev --showkeys` and look for `allow_discards` in the output. swap "crypt_dev" with whatever your hostname is (e.g. void-pc)
 
@@ -31,15 +31,16 @@ I made this guide as a way to install Void Linux easily on my machines. It is no
 
 update packages
 
-`sudo xbps-install -Su`
+`xbps-install -Su`
 
 (if you get a transient resolver failure try running this, might have to do it twice: `dhcpcd`)
 
-set mirror
+set mirror and re-update packages
 
 ```
-sudo xbps-install xmirror
+xbps-install xmirror
 xmirror
+xbps-install -Su
 ```
 
 5. add non-root user
@@ -70,7 +71,7 @@ passwd <username>
 download the script
 ```
 su <username>
-cd ~
+cd
 sudo xbps-install -S curl
 curl -o auto-void.sh https://raw.githubusercontent.com/finder-1/void-install/refs/heads/main/auto-void.sh
 ```
@@ -104,7 +105,7 @@ chmod +x ~/auto-void.sh
 after running the script:
 
 ```
-usermod -aG _seatd,socklog,network $USER
+sudo usermod -aG _seatd,socklog,network $USER
 rm ~/auto-void.sh
 sudo reboot
 ```
