@@ -126,6 +126,10 @@ for tty in 3 4 5 6; do
   sudo rm -rf /var/service/agetty-tty"$tty"
 done
 
+# Move xbps-cache to home directory
+sudo mv /var/cache/xbps /home/$USER/xbps-cache
+sudo ln -s /home/$USER/xbps-cache /var/cache/xbps
+
 # Set up ACPI
 sudo ln -s /etc/sv/acpid/ /var/service/
 sudo sv enable acpid
