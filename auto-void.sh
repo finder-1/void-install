@@ -130,6 +130,28 @@ done
 sudo mv /var/cache/xbps /home/$USER/xbps-cache
 sudo ln -s /home/$USER/xbps-cache /var/cache/xbps
 
+# Set up udiskie polkit rule
+sudo cat > /etc/polkit-1/rules.d/50-udiskie.rules << 'EOF'
+polkit.addRule(function(action, subject) {
+  var YES = polkit.Result.YES;
+    // NOTE: there must be a comma at the end of each line except for the last:
+      var permission = {
+              // // required for udisks1:
+              "org.freedesktop.udisks.filesystem-mount": YES,
+              "org.freedesktop.udisks.luks-unlock": YES,
+              "org.freedesktop.udisks.drive-eject": YES,
+              "org.freedesktop.udisks.drive-detach": YES,
+              // required for udisks2:
+              "org.freedesktop.udisks2.filesystem-mount": YES,
+              "org.freedesktop.udisks2.encrypted-unlock": YES,
+              "org.freedesktop.udisks2.eject-media": YES,
+              "org.freedesktop.udisks2.power-off-drive": YES,
+              "org.freedesktop.udisks2.block-devices": YES,
+              };
+      return permission[action.id];
+});
+EOF
+
 # Set up ACPI
 sudo ln -s /etc/sv/acpid/ /var/service/
 sudo sv enable acpid
