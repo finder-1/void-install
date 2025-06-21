@@ -131,7 +131,7 @@ sudo mv /var/cache/xbps /home/$USER/xbps-cache
 sudo ln -s /home/$USER/xbps-cache /var/cache/xbps
 
 # Set up udiskie polkit rule
-sudo cat > /etc/polkit-1/rules.d/50-udiskie.rules << 'EOF'
+cat << 'EOF' | sudo tee /etc/polkit-1/rules.d/50-udiskie.rules >/dev/null
 polkit.addRule(function(action, subject) {
   var YES = polkit.Result.YES;
     // NOTE: there must be a comma at the end of each line except for the last:
