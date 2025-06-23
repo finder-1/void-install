@@ -35,7 +35,7 @@ fi
 
 # Install other packages
 install_core_packages() {
-  for pkg in sway seatd socklog git tmux wayland dbus dbus-glib polkit polkit-gnome chrony \
+  for pkg in sway seatd socklog pam_rundir git tmux wayland dbus dbus-glib polkit polkit-gnome chrony \
              xdg-utils xdg-desktop-portal-gtk xdg-desktop-portal-gnome xdg-desktop-portal-wlr xdg-desktop-portal \
              pulseaudio pavucontrol rtkit wlr-randr xdg-user-dirs \
              noto-fonts-emoji noto-fonts-cjk-sans noto-fonts-ttf nerd-fonts-symbols-ttf \
@@ -99,7 +99,10 @@ xdg-user-dirs-update
 #rmdir $HOME/Public
 #rmdir $HOME/Desktop
 
+# Set up pam_rundir
+sudo sed -i '/^-session   optional   pam_elogind.so/a -session   optional   pam_rundir.so' "/etc/pam.d/system-login"
 
+# Set up bluetooth
 sudo ln -s /etc/sv/bluetoothd /var/service/
 
 # Set up chrony
