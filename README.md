@@ -5,7 +5,7 @@ A Void Linux with Sway window manager install guide and post-install script.
 
 I made this guide as a way to install Void Linux easily on my machines. It is not a just-works solution. You will need to do some configuring yourself and still need to know your way around setting up a bare-bones Linux desktop from scratch.
 
-
+This install uses seatd instead of elogind.
 
 1. full disk encryption + partitioning 
     - https://docs.voidlinux.org/installation/guides/fde.html#full-disk-encryption
