@@ -35,7 +35,7 @@ fi
 
 # Install other packages
 install_core_packages() {
-  for pkg in sway seatd socklog pam_rundir git tmux wayland dbus dbus-glib polkit polkit-gnome chrony \
+  for pkg in sway seatd socklog pam_rundir git tmux wayland dbus dbus-glib polkit polkit-gnome ufw chrony \
              xdg-utils xdg-desktop-portal-gtk xdg-desktop-portal-gnome xdg-desktop-portal-wlr xdg-desktop-portal \
              pulseaudio pavucontrol rtkit wlr-randr xdg-user-dirs \
              noto-fonts-emoji noto-fonts-cjk-sans noto-fonts-ttf nerd-fonts-symbols-ttf \
@@ -121,8 +121,12 @@ sudo ln -s /etc/sv/seatd /var/service
 sudo ln -s /etc/sv/dbus /var/service
 
 # Set up socklog
-ln -s /etc/sv/socklog-unix/ /var/service
-ln -s /etc/sv/nanoklogd/ /var/service
+sudo ln -s /etc/sv/socklog-unix/ /var/service
+sudo ln -s /etc/sv/nanoklogd/ /var/service
+
+# Set up ufw
+sudo ufw enable
+sudo ln -s /etc/sv/ufw /var/service/ufw
 
 # Remove unused services (TTYs)
 for tty in 3 4 5 6; do
