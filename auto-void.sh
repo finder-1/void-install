@@ -133,9 +133,9 @@ for tty in 3 4 5 6; do
   sudo rm -rf /var/service/agetty-tty"$tty"
 done
 
-# Move xbps-cache to home directory
-sudo mv /var/cache/xbps /home/$USER/xbps-cache
-sudo ln -s /home/$USER/xbps-cache /var/cache/xbps
+# Move var-cache to home directory
+sudo mv /var/cache /home/$USER/var-cache
+sudo ln -s /home/$USER/var-cache /var/cache
 
 # Set up udiskie polkit rule
 cat << 'EOF' | sudo tee /etc/polkit-1/rules.d/50-udiskie.rules >/dev/null
