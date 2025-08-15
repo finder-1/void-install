@@ -39,7 +39,7 @@ The base install of Void. I would recommend installing with [full disk encryptio
 - If you're installing onto an SSD: https://docs.voidlinux.org/config/ssd.html
 
 
-## Post-install
+# Post-install
 1. Update packages and set mirror
 	1. Login as root (you set the password during install)
 	2. Update packages with `xbps-install -Su`
