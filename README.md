@@ -111,6 +111,6 @@ The base install of Void. I would recommend installing with [full disk encryptio
 		- Install [Violentmonkey](https://addons.mozilla.org/firefox/addon/violentmonkey/)
 		- Create a new userscript and paste this: https://pastes.dev/fVL6SIyxQj
 	- Obsidian theme:
-		- Change the accent color in Obsidian to `146 R 131 G 116 B`. this is the same color as the window manager, taskbar, and terminal. you could also try `251 R 241 G 199 B`. the setting can be found in Appearance on the Obsidian app
+		- Change the accent color in Obsidian to `146 R 131 G 116 B`. this is the same color as the window manager, taskbar, and terminal. You can also add this to icons if you use the Iconize plugin. You could also try `251 R 241 G 199 B`. the setting can be found in Appearance on the Obsidian app
 	- Flatpak application permissions:
 	  - In Flatseal (installed by default) give LibreWolf and Obsidian permissions to all files, along with any other applications you install and think need those permissions
