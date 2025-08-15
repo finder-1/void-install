@@ -14,6 +14,7 @@ The base install of Void. I would recommend installing with [full disk encryptio
 ## Notes for full disk encryption:
 - If you're unsure how to edit files, for example when the guide says to "Add the following line to `/etc/default/grub`", type `vi /etc/default/grub`, this will open the file in the Vim text editor. If you're unfamiliar with using Vim: https://linuxhandbook.com/basic-vim-commands
 - When it says "Edit the `GRUB_CMDLINE_LINUX_DEFAULT=` line in `/etc/default/grub`" do not delete what already exists in `GRUB_CMDLINE_LINUX_DEFAULT=`, add to it by putting a space between what already exists and what you're adding
+- Run this after you complete the install: `grub-mkconfig -o /boot/grub/grub.cfg`
 - If your system uses legacy BIOS (MKR): https://docs.voidlinux.org/installation/live-images/partitions.html#bios-system-notes
 - If your system uses UEFI: https://docs.voidlinux.org/installation/live-images/partitions.html#uefi-system-notes
 	- When partitioning give the EFI partition 300M size, you can spare 200M
