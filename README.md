@@ -19,7 +19,7 @@ The base install of Void. I would recommend installing with [full disk encryptio
 - If your system uses UEFI: https://docs.voidlinux.org/installation/live-images/partitions.html#uefi-system-notes
 	- When partitioning give the EFI partition 300M size, you can spare 200M
 	- When you run `fdisk -l <drive>`, make sure it says `Disklabel type: gpt`
-	- Remember that since you have an EFI partition the partition that will be encrypted and installed onto will be `/dev/sda2` or `/dev/nvme0n1p2`. If you're having trouble understanding the filesystems: `/dev/sda` is the disk itself, `/dev/sda1` is the EFI partition, which you need since your system uses UEFI, and `/dev/sda2` is the main partition. If you are using an NVMe drive it will be slightly different, `/dev/nvme0n1` is the disk itself, `/dev/nvme0n1p1` is the EFI partition, and `/dev/nvme0n1p2` is the main partition.
+	- Remember that since you have an EFI partition the partition that will be encrypted and installed onto will be `/dev/sda2` or `/dev/nvme0n1p2`. If you're having trouble understanding the filesystems: `/dev/sda` is the drive itself, `/dev/sda1` is the EFI partition, which you need since your system uses UEFI, and `/dev/sda2` is the main partition. If you are using an NVMe drive it will be slightly different, `/dev/nvme0n1` is the drive itself, `/dev/nvme0n1p1` is the EFI partition, and `/dev/nvme0n1p2` is the main partition.
 - If you're installing onto an SSD: https://docs.voidlinux.org/config/ssd.html
 	- Make these modifications during the install to enable TRIM:
 		- When running `cryptsetup luksOpen`, add `--allow-discards`. It should look like `cryptsetup luksOpen --allow-discards /dev/nvme0n1pX voidvm`
